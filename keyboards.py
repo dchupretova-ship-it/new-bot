@@ -53,10 +53,11 @@ def slots_kb(slots) -> InlineKeyboardMarkup:
 
 
 def format_slot_label(slot_dt: str) -> str:
-    """slot_dt хранится как 'YYYY-MM-DD HH:MM' -> 'ДД.ММ, ЧЧ:ММ'."""
+    """slot_dt хранится как 'YYYY-MM-DD HH:MM' (время московское) ->
+    'ДД.ММ, ЧЧ:ММ МСК'."""
     try:
         date_part, time_part = slot_dt.split(" ")
         y, m, d = date_part.split("-")
-        return f"{d}.{m}, {time_part}"
+        return f"{d}.{m}, {time_part} МСК"
     except Exception:
         return slot_dt
