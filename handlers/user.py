@@ -177,8 +177,8 @@ async def cb_book_slot(callback: CallbackQuery, bot: Bot):
         try:
             await bot.send_message(
                 ADMIN_CHAT_ID,
-                content.ADMIN_NEW_BOOKING_TEXT.format(
-                    slot_dt=slot["slot_dt"] if slot else "?",
+                    content.ADMIN_NEW_BOOKING_TEXT.format(
+                    slot_dt=slot_label,
                     full_name=full_name or "без имени",
                     username=username or "нет username",
                     chat_id=chat_id,
