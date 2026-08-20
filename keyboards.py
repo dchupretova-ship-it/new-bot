@@ -18,9 +18,9 @@ def question_kb(question_index: int) -> InlineKeyboardMarkup:
     состояния FSM для проверки, что ответ относится к текущему вопросу."""
     kb = InlineKeyboardBuilder()
     options = content.QUESTIONS[question_index]["options"]
-    for i, _ in enumerate(options, start=1):
-        kb.button(text=str(i), callback_data=f"ans:{question_index}:{i}")
-    kb.adjust(5)
+    for i, option_text in enumerate(options, start=1):
+        kb.button(text=option_text, callback_data=f"ans:{question_index}:{i}")
+    kb.adjust(1)
     return kb.as_markup()
 
 
